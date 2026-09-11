@@ -4,6 +4,16 @@ from dataanalyzer import*
 
 root=tk.Tk()
 
+info={"Median": "Медиана — это число, которое стоит посередине, если все числа расположить по порядку. Например:"
+    "2,4,5,7,8 - медиана 5; если чисел четное кол-во, то для  2 4 5 6 7 8 медиана - 5+6/2=1=5.5",
+      "Mode": "Мода - это самое часто встречаемое число в массиве. Например, для 2 2 4 5 6 7 модой будет число 2. ",
+      "Q1": " Q1 (первый квартиль) — значение, ниже которого находится 25% всех данных. Иначе говоря, медиана первой половины в упорядоченном массиве.",
+      "Variance":" Дисперсия — показывает, насколько сильно значения разбросаны относительно среднего. Чем больше дисперсия, тем сильнее разброс.",
+      "Q3":"Q3 (третий квартиль) — значение, ниже которого находится 75% всех данных. Иначе говоря, медиана второй половины в упор. массиве",
+      "Standard devation": " Стандартное отклонение — показывает, насколько в среднем значения отклоняются от среднего. Чем больше оно, тем сильнее разброс.",
+      "IQR":"Iqr = Q3 - Q1"}
+
+
 def show_page2():
     page1.pack_forget()
     page2.pack(fill='both',expand=True)
@@ -102,34 +112,34 @@ button_max.grid(row=1,
 button_mean=tk.Button(buttons_frame,text='3. Click to see average!',command=lambda: swipe(find_average(data)))
 button_mean.grid(column=0,row=2,padx=40,pady=15)
 
-button_median=tk.Button(buttons_frame,text='4. Click to see median!',command=lambda: swipe(find_median(data)))
+button_median=tk.Button(buttons_frame,text='4. Click to see median!',command=lambda: (swipe(find_median(data)),messagebox.showinfo("What is Median?", info["Median"])))
 button_median.grid(row=2,
     column=1,
     padx=40,
     pady=15)
 
-button_mode=tk.Button(buttons_frame,text='5. Click to see mode!',command=lambda: swipe(find_mode(data)))
+button_mode=tk.Button(buttons_frame,text='5. Click to see mode!',command=lambda: (swipe(find_mode(data)),messagebox.showinfo("What is mode?",info["Mode"])))
 button_mode.grid(column=0,row=3,padx=40,pady=15)
 
-button_variance=tk.Button(buttons_frame,text='6. Click to see variance!',command=lambda: swipe(find_variance(data)))
+button_variance=tk.Button(buttons_frame,text='6. Click to see variance!',command=lambda: (swipe(find_variance(data)),messagebox.showinfo("What is variance",info['Variance'])))
 button_variance.grid(row=3,
     column=1,
     padx=40,
     pady=15)
 
-button_std=tk.Button(buttons_frame,text='7. Click to see standart deviation!',command=lambda: swipe(find_stdev(data)))
+button_std=tk.Button(buttons_frame,text='7. Click to see standart deviation!',command=lambda: (swipe(find_stdev(data)),messagebox.showinfo("What is standard deviation",info['Standard devation'])))
 button_std.grid(column=0,row=4,padx=40,pady=15)
 
-button_q1=tk.Button(buttons_frame,text='8. Click to see Q1!',command=lambda: swipe(find_q1(data)))
+button_q1=tk.Button(buttons_frame,text='8. Click to see Q1!',command=lambda: (swipe(find_q1(data)),messagebox.showinfo("What is Q1?",info["Q1"])))
 button_q1.grid(row=4,
     column=1,
     padx=40,
     pady=15)
 
-button_q3=tk.Button(buttons_frame,text='9. Click to see Q3!',command=lambda: swipe(find_q3(data)))
+button_q3=tk.Button(buttons_frame,text='9. Click to see Q3!',command=lambda: (swipe(find_q3(data)),messagebox.showinfo("What is Q3?",info["Q3"])))
 button_q3.grid(column=0,row=5,padx=40,pady=15)
 
-button_iqr=tk.Button(buttons_frame,text='10. Click to see IQR!',command=lambda: swipe(find_iqr(data)))
+button_iqr=tk.Button(buttons_frame,text='10. Click to see IQR!',command=lambda: (swipe(find_iqr(data)),messagebox.showinfo("What is IQR",info["IQR"])))
 button_iqr.grid(row=5,
     column=1,
     padx=40,
